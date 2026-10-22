@@ -1995,13 +1995,6 @@ common_params_context common_params_parser_init(common_params & params, llama_ex
         }
     ).set_sampling());
     add_opt(common_arg(
-        {"-s", "--seed"}, "SEED",
-        string_format("RNG seed (default: %d, use random seed for %d)", params.sampling.seed, LLAMA_DEFAULT_SEED),
-        [](common_params & params, const std::string & value) {
-            params.sampling.seed = std::stoul(value);
-        }
-    ).set_sampling());
-    add_opt(common_arg(
         {"--sampler-seq", "--sampling-seq"}, "SEQUENCE",
         string_format("simplified sequence for samplers that will be used (default: %s)", sampler_type_chars.c_str()),
         [](common_params & params, const std::string & value) {
